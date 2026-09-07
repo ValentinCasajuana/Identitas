@@ -1,0 +1,16 @@
+/* IDENTITAS® — variables de diseño compartidas
+ *
+ * PENDIENTE: extraer aquí las variables y estilos comunes del index.html actual
+ * y enlazar este archivo desde cada instrumento en lugar de repetirlos.
+ * Los nombres reales se copian tal cual del archivo actual; no reinventarlos.
+ */
+
+:root {
+  /* --sage:  ; */
+  /* --amber: ; */
+  /* --paper: ; */
+  /* --line:  ; */
+
+  --fuente-titulo: "Fraunces", Georgia, serif;
+  --fuente-texto: "Inter", system-ui, -apple-system, sans-serif;
+}

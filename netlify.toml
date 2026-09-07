@@ -1,0 +1,22 @@
+# IDENTITAS® — configuración de despliegue
+# Sitio estático: no hay proceso de construcción, se publica la raíz tal cual.
+
+[build]
+  publish = "."
+  command = ""
+
+# Material en desarrollo dirigido a menores: no debe indexarse en buscadores.
+# Retirar esta cabecera solo con una decisión explícita (y su ADR).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+
+# Los instrumentos cambian; evitar que un navegador sirva una versión vieja
+# desde caché justo después de publicar una corrección.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache"
