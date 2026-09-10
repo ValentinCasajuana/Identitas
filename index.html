@@ -666,6 +666,28 @@ html{scroll-behavior:auto;}
   background:var(--paper-dim); border-radius:22px; padding:30px 32px; margin-top:34px;}
 .mp-tree-copy h3{font-family:'Fraunces',serif; font-size:1.4rem; margin:8px 0 10px;}
 .mp-tree-copy p{color:var(--ink-soft); font-size:.92rem; line-height:1.6; margin:0;}
+
+  .mp-lista{display:none;}
+  @media(max-width:820px){
+    .mp-arbol{overflow:hidden; border-radius:14px;}
+    .mp-arbol canvas{width:139%; margin-left:-19.5%; border-radius:0;}
+    .mp-lista{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:14px 0 0;
+      padding:0; list-style:none;}
+    .mp-lista button{width:100%; min-height:52px; display:grid;
+      grid-template-columns:2.1em 1fr; grid-template-areas:"n p" "n t";
+      gap:0 8px; align-items:center; text-align:left; cursor:pointer;
+      background:#fff; border:1px solid var(--line); border-radius:12px;
+      padding:9px 12px; font-family:inherit; color:var(--ink);}
+    .ml-n{grid-area:n; font-family:'Fraunces',serif; font-size:1rem; color:var(--ink-soft);}
+    .ml-p{grid-area:p; font-size:.66rem; letter-spacing:.14em; text-transform:uppercase;
+      font-weight:700; color:var(--ink-soft);}
+    .ml-t{grid-area:t; font-size:.86rem; line-height:1.25;}
+    .mp-lista button.destacado{border-color:var(--teal);
+      box-shadow:0 0 0 2px rgba(47,126,130,.16);}
+  }
+  @media(max-width:400px){
+    .mp-lista{grid-template-columns:1fr;}
+  }
 .mp-arbol{position:relative;}.mp-arbol canvas{display:block;width:100%;height:auto;border-radius:14px;}.mp-guias{position:absolute;inset:0;width:100%;height:100%;--guia:#7C8474;}.mp-guias .gparte{cursor:pointer;}.mp-guias .gparte *{transition:stroke .3s ease,fill .3s ease;}.mp-guias .gparte.destacado{--guia:#C98A22;}.gt-rom{font-family:'Fraunces',serif;font-weight:700;font-size:19px;fill:#2F7E82;}.gt-tit{font-size:18px;fill:#3C4250;}.mp-guias .gparte.destacado .gt-tit{fill:#16233F;}@media(max-width:820px){.mp-guias{display:none;}}
 .mp-tree-parts span{font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; font-weight:800;
   color:var(--mp); border:1.5px solid var(--mp); border-radius:100px; padding:7px 14px; background:#fff;}
@@ -1007,7 +1029,7 @@ body.ix-visor-abierto{overflow:hidden;}
         <h3>Se dibuja por partes según avanzas</h3>
         <p>Raíz, heridas, tronco, savia, ramas, hiedra, frutos y la sombra que proyectan. Cada módulo completado enciende su parte, y al final tienes el resumen integrado de los ocho.</p>
       </div>
-      <div class="mp-arbol"><canvas id="mpArbolCv" width="1780" height="720" role="img" aria-label="Árbol IDENTITAS. Cada parte se ilumina al completar su módulo."></canvas><svg id="mpGuias" class="mp-guias" viewBox="0 0 1780 720"><g class="gparte" data-arb="ramas" tabindex="0" role="link" aria-label="Ir al módulo IV, Vicios y virtudes"><path d="M 236 150 L 530 150 L 600 210" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 600 210 L 585 205 L 593 196 Z" fill="var(--guia)"/><text x="14" y="138" text-anchor="start" class="gt-rom">IV · Ramas</text><text x="14" y="158" text-anchor="start" class="gt-tit">Vicios y virtudes</text></g><g class="gparte" data-arb="savia" tabindex="0" role="link" aria-label="Ir al módulo V, Identidad"><path d="M 236 330 L 808 330 L 878 360" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 878 360 L 862 360 L 867 349 Z" fill="var(--guia)"/><text x="14" y="318" text-anchor="start" class="gt-rom">V · Savia</text><text x="14" y="338" text-anchor="start" class="gt-tit">Identidad</text></g><g class="gparte" data-arb="hiedra" tabindex="0" role="link" aria-label="Ir al módulo VII, Dependencias y hábitos"><path d="M 236 452 L 788 452 L 858 455" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 858 455 L 843 460 L 843 448 Z" fill="var(--guia)"/><text x="14" y="440" text-anchor="start" class="gt-rom">VII · Hiedra</text><text x="14" y="460" text-anchor="start" class="gt-tit">Dependencias y hábitos</text></g><g class="gparte" data-arb="heridas" tabindex="0" role="link" aria-label="Ir al módulo III, Heridas"><path d="M 236 640 L 570 640 L 640 606" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 640 606 L 629 618 L 624 607 Z" fill="var(--guia)"/><text x="14" y="628" text-anchor="start" class="gt-rom">III · Raíz herida</text><text x="14" y="648" text-anchor="start" class="gt-tit">Heridas</text></g><g class="gparte" data-arb="frutos" tabindex="0" role="link" aria-label="Ir al módulo VI, Frutos"><path d="M 1544 130 L 1198 130 L 1128 214" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 1128 214 L 1133 199 L 1142 206 Z" fill="var(--guia)"/><text x="1766" y="118" text-anchor="end" class="gt-rom">VI · Frutos</text><text x="1766" y="138" text-anchor="end" class="gt-tit">Frutos</text></g><g class="gparte" data-arb="tronco" tabindex="0" role="link" aria-label="Ir al módulo II, Carácter"><path d="M 1544 400 L 976 400 L 906 430" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 906 430 L 917 419 L 922 430 Z" fill="var(--guia)"/><text x="1766" y="388" text-anchor="end" class="gt-rom">II · Tronco</text><text x="1766" y="408" text-anchor="end" class="gt-tit">Carácter</text></g><g class="gparte" data-arb="raiz" tabindex="0" role="link" aria-label="Ir al módulo I, Temperamento"><path d="M 1544 640 L 1226 640 L 1156 598" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 1156 598 L 1172 601 L 1166 611 Z" fill="var(--guia)"/><text x="1766" y="628" text-anchor="end" class="gt-rom">I · Raíz</text><text x="1766" y="648" text-anchor="end" class="gt-tit">Temperamento</text></g><g class="gparte" data-arb="sombra" tabindex="0" role="link" aria-label="Ir al módulo VIII, Huella"><path d="M 236 556 L 496 556 L 566 528" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 566 528 L 554 539 L 550 528 Z" fill="var(--guia)"/><text x="14" y="544" text-anchor="start" class="gt-rom">VIII · Sombra</text><text x="14" y="564" text-anchor="start" class="gt-tit">Huella</text></g></svg></div>
+      <div class="mp-arbol" id="mpArbolCaja"><canvas id="mpArbolCv" width="1780" height="720" role="img" aria-label="Árbol IDENTITAS. Cada parte se ilumina al completar su módulo."></canvas><svg id="mpGuias" class="mp-guias" viewBox="0 0 1780 720"><g class="gparte" data-arb="ramas" tabindex="0" role="link" aria-label="Ir al módulo IV, Vicios y virtudes"><path d="M 236 150 L 530 150 L 600 210" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 600 210 L 585 205 L 593 196 Z" fill="var(--guia)"/><text x="14" y="138" text-anchor="start" class="gt-rom">IV · Ramas</text><text x="14" y="158" text-anchor="start" class="gt-tit">Vicios y virtudes</text></g><g class="gparte" data-arb="savia" tabindex="0" role="link" aria-label="Ir al módulo V, Identidad"><path d="M 236 330 L 808 330 L 878 360" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 878 360 L 862 360 L 867 349 Z" fill="var(--guia)"/><text x="14" y="318" text-anchor="start" class="gt-rom">V · Savia</text><text x="14" y="338" text-anchor="start" class="gt-tit">Identidad</text></g><g class="gparte" data-arb="hiedra" tabindex="0" role="link" aria-label="Ir al módulo VII, Dependencias y hábitos"><path d="M 236 452 L 788 452 L 858 455" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 858 455 L 843 460 L 843 448 Z" fill="var(--guia)"/><text x="14" y="440" text-anchor="start" class="gt-rom">VII · Hiedra</text><text x="14" y="460" text-anchor="start" class="gt-tit">Dependencias y hábitos</text></g><g class="gparte" data-arb="heridas" tabindex="0" role="link" aria-label="Ir al módulo III, Heridas"><path d="M 236 640 L 570 640 L 640 606" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 640 606 L 629 618 L 624 607 Z" fill="var(--guia)"/><text x="14" y="628" text-anchor="start" class="gt-rom">III · Raíz herida</text><text x="14" y="648" text-anchor="start" class="gt-tit">Heridas</text></g><g class="gparte" data-arb="frutos" tabindex="0" role="link" aria-label="Ir al módulo VI, Frutos"><path d="M 1544 130 L 1198 130 L 1128 214" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 1128 214 L 1133 199 L 1142 206 Z" fill="var(--guia)"/><text x="1766" y="118" text-anchor="end" class="gt-rom">VI · Frutos</text><text x="1766" y="138" text-anchor="end" class="gt-tit">Frutos</text></g><g class="gparte" data-arb="tronco" tabindex="0" role="link" aria-label="Ir al módulo II, Carácter"><path d="M 1544 400 L 976 400 L 906 430" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 906 430 L 917 419 L 922 430 Z" fill="var(--guia)"/><text x="1766" y="388" text-anchor="end" class="gt-rom">II · Tronco</text><text x="1766" y="408" text-anchor="end" class="gt-tit">Carácter</text></g><g class="gparte" data-arb="raiz" tabindex="0" role="link" aria-label="Ir al módulo I, Temperamento"><path d="M 1544 640 L 1226 640 L 1156 598" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 1156 598 L 1172 601 L 1166 611 Z" fill="var(--guia)"/><text x="1766" y="628" text-anchor="end" class="gt-rom">I · Raíz</text><text x="1766" y="648" text-anchor="end" class="gt-tit">Temperamento</text></g><g class="gparte" data-arb="sombra" tabindex="0" role="link" aria-label="Ir al módulo VIII, Huella"><path d="M 236 556 L 496 556 L 566 528" fill="none" stroke="var(--guia)" stroke-width="2"/><path d="M 566 528 L 554 539 L 550 528 Z" fill="var(--guia)"/><text x="14" y="544" text-anchor="start" class="gt-rom">VIII · Sombra</text><text x="14" y="564" text-anchor="start" class="gt-tit">Huella</text></g></svg><ul class="mp-lista"><li><button type="button" data-arb="raiz"><span class="ml-n">I</span><span class="ml-p">Raíz</span><span class="ml-t">Temperamento</span></button></li><li><button type="button" data-arb="tronco"><span class="ml-n">II</span><span class="ml-p">Tronco</span><span class="ml-t">Carácter</span></button></li><li><button type="button" data-arb="heridas"><span class="ml-n">III</span><span class="ml-p">Raíz herida</span><span class="ml-t">Heridas</span></button></li><li><button type="button" data-arb="ramas"><span class="ml-n">IV</span><span class="ml-p">Ramas</span><span class="ml-t">Vicios y virtudes</span></button></li><li><button type="button" data-arb="savia"><span class="ml-n">V</span><span class="ml-p">Savia</span><span class="ml-t">Identidad</span></button></li><li><button type="button" data-arb="frutos"><span class="ml-n">VI</span><span class="ml-p">Frutos</span><span class="ml-t">Frutos</span></button></li><li><button type="button" data-arb="hiedra"><span class="ml-n">VII</span><span class="ml-p">Hiedra</span><span class="ml-t">Dependencias y hábitos</span></button></li><li><button type="button" data-arb="sombra"><span class="ml-n">VIII</span><span class="ml-p">Sombra</span><span class="ml-t">Huella</span></button></li></ul></div>
     </div>
   </div>
 </section>
@@ -1559,6 +1581,7 @@ function ixArbolSombra(ctx, a){
 function ixArbolCrear(cv, est, guias){
   const V = {cv:cv, ctx:cv.getContext('2d', {willReadFrequently:true}),
              salida:null, alfa:{}, encima:0, anim:false, est:est || {}, guias:guias || null};
+  V.zona = V.guias ? (V.guias.closest('.mp-arbol') || V.guias) : null;
   V.salida = V.ctx.createImageData(IX_ARB_W, IX_ARB_H);
   for(let p = 1; p <= 8; p++) V.alfa[p] = 0;
   V.alfa.savia = 0; V.alfa.hiedra = 0; V.alfa.sombra = 0;
@@ -1616,7 +1639,7 @@ function ixArbolCrear(cv, est, guias){
 
   V.marcaGuias = function(k){
     if(!V.guias) return;
-    const gs = V.guias.querySelectorAll('.gparte');
+    const gs = V.zona.querySelectorAll('[data-arb]');
     for(let i = 0; i < gs.length; i++) gs[i].classList.toggle('destacado', !!k && gs[i].dataset.arb === k);
   };
   V.resalta = function(k){
@@ -1651,7 +1674,7 @@ function ixArbolCrear(cv, est, guias){
   };
 
   if(V.guias){
-    const gs = V.guias.querySelectorAll('.gparte');
+    const gs = V.zona.querySelectorAll('[data-arb]');
     for(let i = 0; i < gs.length; i++){
       (function(g){
         const k = g.dataset.arb;
